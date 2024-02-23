@@ -10,4 +10,4 @@ try:
     time.sleep(5)
     lcd.clear()
 finally:
-    GPIO.cleanup()
+    pass  # No need to call GPIO.cleanup() here
