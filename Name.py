@@ -1,4 +1,7 @@
+import board
 import busio
+from digitalio import DigitalInOut  # Add this line
+
 import adafruit_character_lcd.character_lcd_i2c as character_lcd
 
 # Define LCD column and row size for 16x2 LCD.
