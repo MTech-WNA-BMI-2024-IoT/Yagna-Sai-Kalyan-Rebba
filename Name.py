@@ -1,22 +1,23 @@
-import board
-import busio
-from digitalio import DigitalInOut  # Add this line
-
-import adafruit_character_lcd.character_lcd_i2c as character_lcd
+import RPi.GPIO as GPIO
+from RPLCD.i2c import CharLCD
+import time
 
 # Define LCD column and row size for 16x2 LCD.
 lcd_columns = 16
 lcd_rows = 2
 
-# Initialize I2C bus using Blinka.
-i2c = busio.I2C(board.SCL, board.SDA)
-
 # Initialize LCD.
-lcd = character_lcd.Character_LCD_I2C(i2c, lcd_columns, lcd_rows, address=0x27)
+lcd = CharLCD('PCF8574', 0x27)
 
 # Clear the LCD display.
 lcd.clear()
 
 # Print the message.
 message = "My name is\nYagna Sai Kalyan Rebba"
-lcd.message = message
+lcd.write_string(message)
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Clear the LCD display.
+lcd.clear()
