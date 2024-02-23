@@ -9,5 +9,7 @@ try:
     lcd.write_string("LCD is working!")
     time.sleep(5)
     lcd.clear()
+except Exception as e:
+    print(f"Error: {e}")
 finally:
-    pass  # No need to call GPIO.cleanup() here
+    pass
